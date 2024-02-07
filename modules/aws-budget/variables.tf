@@ -28,7 +28,7 @@ variable "time_unit" {
   type        = string
 }
 
-# Add this to your module's variables.tf
+# Declares variable for email address to receive budget notifications.
 variable "subscriber_email_addresses" {
   description = "List of email addresses for budget notifications."
   type        = list(string)
