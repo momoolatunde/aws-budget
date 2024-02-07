@@ -28,23 +28,20 @@ variable "time_unit" {
   type        = string
 }
 
-# Allows filtering costs by specified criteria.
-variable "cost_filters" {
-  description = "Map of strings for cost filters."
-  type        = map(string)
-  default     = {}
+# Declares variable for email address to receive budget notifications.
+variable "subscriber_email_addresses" {
+  description = "List of email addresses for budget notifications."
+  type        = list(string)
 }
 
 # Configures notifications for budget tracking.
 variable "notifications" {
-  description = "Defines notification settings including operator, type, threshold, and subscriber details."
+  description = "List of notification configurations."
   type = list(object({
     comparison_operator        = string
     notification_type          = string
     threshold                  = number
     threshold_type             = string
-    subscriber_email_addresses = list(string)
-    subscriber_sns_topic_arns  = list(string)
   }))
-  default = []
 }
+
